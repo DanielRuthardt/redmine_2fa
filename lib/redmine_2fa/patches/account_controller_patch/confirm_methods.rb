@@ -64,7 +64,8 @@ module Redmine2FA
           def auth_source_class
             { 'sms' => 'SMS',
               'telegram' => 'Telegram',
-              'google_auth' => 'GoogleAuth' }[protocol]
+              'google_auth' => 'GoogleAuth',
+              'ldap_google_auth' => 'LdapGoogleAuth'}[protocol]
           end
 
           def protocol
