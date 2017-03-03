@@ -25,7 +25,7 @@ module Redmine2FA
         end
 
         def two_factor_authenticable?
-          telegram_authenticable? || sms_authenticable? || google_authenticable?
+          telegram_authenticable? || sms_authenticable? || google_authenticable? || ldap_google_authenticable?
         end
 
         def sms_authenticable?
@@ -38,6 +38,10 @@ module Redmine2FA
 
         def google_authenticable?
           auth_source&.auth_method_name == 'Google Auth'
+        end
+        
+        def ldap_google_authenticable?
+          auth_source&.auth_method_name == 'LDAP + Google Auth'
         end
 
         def reset_second_auth
