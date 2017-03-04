@@ -1,9 +1,11 @@
-class Redmine2FA::AuthSource::AuthSourceLdap_GoogleAuth < Net::LDAP:AuthSourceLdap
+require 'net/ldap'
+
+class Redmine2FA::AuthSource::Ldap_GoogleAuth < AuthSourceLdap
   def auth_method_name
     'LDAP + Google Auth'
   end
 
   def protocol
-    'google_auth'
+    'ldap_google_auth'
   end
 end
